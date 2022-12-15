@@ -1,38 +1,33 @@
 use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
 
-
-fn main() {
-    println!("Guess the number!");
-
-    let secret_number = rand::thread_rng().gen_range(1..=100);
-
-    println!("temp: Current random number is: {secret_number}");
-
-    loop {
-        println!("Enter your number.");
-    
-        let mut guess = String::new();
-
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
-        println!("You guessed {guess}");
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small"),
-            Ordering::Greater => println!("Too big"),
-            Ordering::Equal => {
-                println!("Correct!");
-                break;
+fn fib(n: u32) {
+    let mut a: u32 = 0;
+    let mut b: u32 = 1;
+    println!("0th number: 0");
+    for i in 1..n {
+        match i % 2 == 0 {
+            true => {
+                a = a + b;
+                println!("{i}th number: {a}");
+            },
+            false => {
+                b = a + b;
+                println!("{i}th number: {b}");
             },
         }
-    }
+    }  
+}
+
+fn main() {
+    println!("Give how many fib to print");
+    let mut input = String::new();
+
+    io::stdin().read_line(&mut input).expect("Could not read line");
+
+    let num: u32 = input
+        .trim()
+        .parse()
+        .expect("Could not parse input into int");
+
+    fib(num);
 }
