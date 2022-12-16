@@ -1,38 +1,38 @@
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
+/*
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: i64,
+}
+*/
+/*
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+*/
 
 fn main() {
-    println!("Guess the number!");
+    /*
+    let user_1 = User {
+    active: true,
+    username: String::from("scott"),
+    email: String::from("hscottvo@gmail.com"),
+    sign_in_count: 12
+   };
+   let user_2 = User {
+    active: false,
+    username: String::from("vo"),
+    ..user_1
+   };
+   
+   println!("Username: {}", user_1.username);
+   println!("Username 2: {}", user_2.username);
+   */
+   /*
+   let color = Color(0, 0, 0);
+   let point = Point(1, 0, 1);
 
-    let secret_number = rand::thread_rng().gen_range(1..=100);
-
-    println!("temp: Current random number is: {secret_number}");
-
-    loop {
-        println!("Enter your number.");
-    
-        let mut guess = String::new();
-
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
-        println!("You guessed {guess}");
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small"),
-            Ordering::Greater => println!("Too big"),
-            Ordering::Equal => {
-                println!("Correct!");
-                break;
-            },
-        }
-    }
+   println!("Color: ({}, {}, {})", color.0, color.1, color.2);
+   println!("Point: ({}, {}, {})", point.0, point.1, point.2);
+   */
 }
