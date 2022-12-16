@@ -1,7 +1,7 @@
 #[derive(Debug)]
 struct Rectangle {
     height: i32,
-    width: i32
+    width: i32,
 }
 
 fn main() {
@@ -10,13 +10,12 @@ fn main() {
 
     let rect: Rectangle = Rectangle {
         height: dbg!(h),
-        width: w
+        width: w,
     };
-    
+
     let a: i32 = area(&rect);
     println!("Area of a {w} by {h} rectangle: {a}");
     dbg!(&rect);
-    
 }
 
 fn area(input: &Rectangle) -> i32 {
