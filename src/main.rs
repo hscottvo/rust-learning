@@ -1,23 +1,34 @@
 #[derive(Debug)]
 struct Rectangle {
-    height: i32,
-    width: i32,
+    height: u32,
+    width: u32,
+}
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
+    }
+    fn square(size: u32) -> Self {
+        Self {
+            width: size,
+            height: size,
+        }
+    }
 }
 
 fn main() {
-    let w: i32 = 1920;
-    let h: i32 = 1080;
-
-    let rect: Rectangle = Rectangle {
-        height: dbg!(h),
-        width: w,
+    let rect1: Rectangle = Rectangle {
+        height: 50,
+        width: 50,
     };
-
-    let a: i32 = area(&rect);
-    println!("Area of a {w} by {h} rectangle: {a}");
-    dbg!(&rect);
-}
-
-fn area(input: &Rectangle) -> i32 {
-    input.width * input.height
+    let rect2: Rectangle = Rectangle {
+        height: 49,
+        width: 49,
+    };
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+    let sq1: Rectangle = Rectangle::square(10);
+    println!("Area of the square: {}", sq1.area());
 }
