@@ -1,38 +1,24 @@
-/*
-struct User {
-    active: bool,
-    username: String,
-    email: String,
-    sign_in_count: i64,
+#[derive(Debug)]
+struct Rectangle {
+    height: i32,
+    width: i32
 }
-*/
-/*
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
-*/
 
 fn main() {
-    /*
-    let user_1 = User {
-    active: true,
-    username: String::from("scott"),
-    email: String::from("hscottvo@gmail.com"),
-    sign_in_count: 12
-   };
-   let user_2 = User {
-    active: false,
-    username: String::from("vo"),
-    ..user_1
-   };
-   
-   println!("Username: {}", user_1.username);
-   println!("Username 2: {}", user_2.username);
-   */
-   /*
-   let color = Color(0, 0, 0);
-   let point = Point(1, 0, 1);
+    let w: i32 = 1920;
+    let h: i32 = 1080;
 
-   println!("Color: ({}, {}, {})", color.0, color.1, color.2);
-   println!("Point: ({}, {}, {})", point.0, point.1, point.2);
-   */
+    let rect: Rectangle = Rectangle {
+        height: dbg!(h),
+        width: w
+    };
+    
+    let a: i32 = area(&rect);
+    println!("Area of a {w} by {h} rectangle: {a}");
+    dbg!(&rect);
+    
+}
+
+fn area(input: &Rectangle) -> i32 {
+    input.width * input.height
 }

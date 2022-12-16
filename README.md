@@ -15,3 +15,9 @@
 ### Ownership
 * Earlier example had structs having `String` fields instead of `&str` fields
 * If a struct does not own a field, those fields must have *lifetimes* (Chapter 10)
+## 5.2 Rectangle Example
+* not printable by default
+* implement `Display()` in the struct or use `Debug()`
+    * if `Debug()` isn't implemented either, can use `#[derive(Debug)]` above struct definition
+    * can use `"{:?}"` to add to a string or `"{:#?}"` to have it pretty print
+    * can use `dbg!` macro instead of `println!` to get more information, but uses `stderr` instead of `stdout`
